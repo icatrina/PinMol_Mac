@@ -50,13 +50,13 @@ with open(userpath+'/usefile2.txt', "r") as in_txt:
 # request the desired length of the probe sequence
 while True:
         try:
-                probe=int(input("Enter the length of probe; a number between 22 and 28: "))
+                probe=int(input("Enter the length of probe; a number between 14 and 28: "))
         except:
-                print('You must type a number between 20 and 28, try again:')
+                print('You must type a number between 14 and 28, try again:')
                 continue
 
         else:
-                if probe <22 or probe >28:
+                if probe <14 or probe >28:
                         print('The value you entered is incorrect!')
                         sys.exit('Try again!')
                 else:
