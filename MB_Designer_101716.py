@@ -139,7 +139,7 @@ with open(userpath+'/allcsv.csv', 'w') as csv_file:
         writer.writerow(row)
 
 # consider only certain regions of target? maybe use only CDS
-df = pd.read_csv(userpath+'/allcsv.csv')
+#df = pd.read_csv(userpath+'/allcsv.csv')
 tg_start = int(input("If a specific region within the target is needed, please enter the number of start base, or 1: "))
 tg_end = int(input("  and the number of end base or max number of bases " + str(max_base) + ": "))
 tg_diff = tg_end - tg_start
@@ -154,6 +154,7 @@ elif tg_diff < probe:
     sys.exit('Try again!')
 #sort descending by sscount = larger sscount more accessible target region
 elif tg_start >=1 and tg_end <= int(max_base):
+    df = pd.read_csv(userpath+'/allcsv.csv')
     slice2 = df[tg_start:tg_end]
     for row in slice2:
         slice2 = slice2.sort_values(by='sscount', ascending=False)
@@ -399,10 +400,11 @@ with open(userpath+'/mb_picks.csv') as ff:
         cseq1 = seql[1].translate(basecomplement)
         cseq2 = seql[2].translate(basecomplement)
         stem1 = ['C', 'G', 'U', 'C', 'G']
+        stem2 = ['U', 'G', 'U', 'U', 'G']
         seq_slc = []
         for p in range(0,probe-5):
             seq_slc.append(seql[p:p+5])
-        if stem1 in seq_slc:
+        if stem1 in seq_slc or stem2 in seq_slc:
             stem = 'GCACG'
         elif cseq0 == seql[-1] and cseq1 == seql[-2] and cseq2 == seql[-3]:
             stem = 'CG'
@@ -450,7 +452,7 @@ os.remove(userpath+'/Sorted_list.csv')
 #os.remove(userpath+'/Full_List_sorted.csv')
 os.remove(userpath+'/filter1.csv')
 os.remove(userpath+'/updated_test2.csv')
-os.remove(userpath+'/sortedout.csv')
+#os.remove(userpath+'/sortedout.csv')
 os.remove(userpath+'/final_out.csv')
 os.remove(userpath+'/forblast.csv')
 os.remove(userpath+'/eg_sorted2.csv')
