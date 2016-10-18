@@ -442,7 +442,7 @@ for j in range(1, no_pb+1):
 
 print("\n"+"This information can be also be found in the file Final_molecular_beacons.csv"+"\n")
 print("\n"+"Check the structure for the selected probes using your favorite browser by opening the corresponding SVG files!")
-print("\n"+"If no SVG file are found, increase the number of probes and/or target region!")
+print("\n"+"If no SVG files are found, increase the number of probes and/or target region!")
 #remove intermediate files
 os.remove(userpath+'/usefile2.txt')
 os.remove(userpath+'/tocsv2.csv')
