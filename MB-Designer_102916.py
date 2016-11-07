@@ -217,16 +217,18 @@ def stemDesign(): #design the stem of the final probes
         for item in fseq:
             i += 1
             seql = list(item)
+            seq_slc0 = seql[0:probe+1]
+            seq_slc = list(itersplit_into_x_chunks(seq_slc0, probe+1, 4))
             cseq0 = seql[0].translate(basecomplement)
             cseq1 = seql[1].translate(basecomplement)
             cseq2 = seql[2].translate(basecomplement)
-             #stem1 = ['C', 'G', 'U', '']
+            #stem1 = ['C', 'G', 'U', '']
             stem2 = ['C', 'A', 'C', 'G']
             stem3 = ['G', 'C', 'U', 'C']
             stem4 = ['U', 'G', 'U', 'U']
             stem5 = ['G', 'C', 'U', 'U']
-            for p in range(0,probe-4):
-                seq_slc.append(seql[p:p+4])
+            #for p in range(0,probe-3):
+            #print(seq_slc)
             if seql[0] == 'A' and seql[-1] == 'U':
                 stem = 'CGCC'
             elif seql[0] == 'U' and seql[-1] == 'A':
