@@ -268,41 +268,42 @@ def stemDesign(): #design the stem of the final probes
                 slcol3 = list(slco3)
                 #for p in range(0,probe-3):
                 #print(seq_slc)
-                if  cseq0 == seql[-1] and cseq1 == seql[-2] and cseq2 == seql[-3]:
-                    stem = 'GG'
-                    
-                elif cseq0 == seql[-1] and cseq1 == seql[-2]:
-                    stem = 'CCG'
-                    
-                elif seql[0] == 'U' and seql[-1] == 'A' and stem15 not in seq_slc:
-                    stem = 'GCCG'
-                    
-                elif seql[0] == 'U' and seql[-1] == 'A' and stem15 in seq_slc:
-                    stem = 'CCGG'
-                    
-                elif seql[0] == 'A' and seql[-1] == 'U':
-                    stem = 'CGCC'
+            if  cseq0 == seql[-1] and cseq1 == seql[-2] and cseq2 == seql[-3]:
+                stem = 'GG'
                 
-                elif seql[0] == 'C' and seql[-1] == cseq0 or seql[0] == 'G' and seql[-1] == cseq0:
-                    stem = 'CGAG'
+            elif cseq0 == seql[-1] and cseq1 == seql[-2]:
+                stem = 'CCG'
                 
-                elif seql[0] == 'U' and seql[-1] == 'G' and stem13 not in seq_slc:
-                    stem = 'CGCGA'
-                    
-                elif seql[0] == 'G' and seql[-1] == 'U':
-                    stem = 'CGCGA'
-                    
-                elif any(s in seq_slc for s in (slcol3)) and stem14 not in seq_slc:
-                    stem = 'GCACG'
+            elif seql[0] == 'U' and seql[-1] == 'A' and stem15 not in seq_slc:
+                stem = 'GCCG'
                 
-                elif any(s in seq_slc for s in (slco1))and stem14 not in seq_slc:
-                    stem = 'CGACG'
+            elif seql[0] == 'U' and seql[-1] == 'A' and stem15 in seq_slc:
+                stem = 'CCGG'
                 
-                elif any(s in seq_slc for s in (slcol2)) and stem14 not in seq_slc:
-                    stem = 'GCAGC'
-                    
-                else:
-                    stem = 'CGAGC'
+            elif seql[0] == 'A' and seql[-1] == 'U':
+                stem = 'CGCC'
+            
+            elif seql[0] == 'C' and seql[-1] == cseq0 or seql[0] == 'G' and seql[-1] == cseq0:
+                stem = 'CGAG'
+            
+            elif seql[0] == 'U' and seql[-1] == 'G' and stem13 not in seq_slc:
+                stem = 'CGCGA'
+                
+            elif seql[0] == 'G' and seql[-1] == 'U':
+                stem = 'CGCGA'
+                
+            elif any(s in seq_slc for s in (slcol3)) and stem14 not in seq_slc:
+                stem = 'GCACG'
+            
+            elif any(s in seq_slc for s in (slco1))and stem14 not in seq_slc:
+                stem = 'CGACG'
+            
+            elif any(s in seq_slc for s in (slcol2)) and stem14 not in seq_slc:
+                stem = 'GCAGC'
+                
+            else:
+                stem = 'CGAGC'
+            
 
             stemr = reverse_complement(stem)
             aseq = (str(i) + " MB sequence at base number " + bs_ps[i-1] + ' is:  '+ stem + item + stemr)
