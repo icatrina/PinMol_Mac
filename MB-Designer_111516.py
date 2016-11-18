@@ -434,12 +434,13 @@ if __name__ == "__main__":
     positives =bl[1]
 
     with open (mb_userpath+'/eg_sorted2.csv') as f3:
-        dl = [[]]
+        dl = [[],[],[]]
         reader = csv.reader(f3)
         for row in reader:
-            for col in range (1):
+            for col in range (3):
                 dl[col].append(row[col])
     base_no = dl[0]
+    sscntl = dl[2]
 
     with open(mb_userpath+'/forblast.csv', 'r') as f1:
         cl =[[]]
@@ -451,8 +452,8 @@ if __name__ == "__main__":
 
     with open (mb_userpath+'/blast_results_picks.csv', 'w') as output2:
         writer = csv.writer(output2)
-        writer.writerow(["Pick#", "Base Number","Positives","Probe Sequence"])
-        rows = zip(pick_no, base_no, positives, probe_seq)
+        writer.writerow(["Pick#", "Base Number","Positives","Probe Sequence", "ss-count fraction"])
+        rows = zip(pick_no, base_no, positives, probe_seq, sscntl )
         for row in rows:
             writer.writerow(row)
 
