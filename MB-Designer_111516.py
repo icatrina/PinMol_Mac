@@ -419,8 +419,10 @@ if __name__ == "__main__":
     assert query1[-1] in str4, "The last query is not contained in the last sequence in the blast_picks.fasta file" #check if the correct file was used for blast
     
     df = pd.read_csv(mb_userpath+'/blast_results.csv', sep = ",", index_col = None, engine = 'python')
-    grouped = df.groupby(['Pick#'], sort=False)['Positives'].max().reset_index()
-    a = pd.DataFrame(grouped)
+    df_grouped = df.groupby(['Pick#']).agg({'Positives':'max'})
+    df_grouped = df_grouped.reset_index()
+    df = pd.merge(df, df_grouped, how='left', on=['Pick#'])
+    a = pd.DataFrame(df_grouped)
     a.to_csv(mb_userpath+"/top_mb_picks.csv", index=False)
 
     with open(mb_userpath+'/top_mb_picks.csv') as f: #extract the information for final output from other files
