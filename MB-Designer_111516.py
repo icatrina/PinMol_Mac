@@ -459,7 +459,7 @@ if __name__ == "__main__":
 
     df = pd.read_csv(mb_userpath+'/blast_results_picks.csv')
     for row in df:
-        df = df.sort_values(by="Positives", ascending=True)
+        df = df.sort_values(['Positives', 'Pick#'], ascending=[True, True])
         df.to_csv(mb_userpath+'/Picks_Sorted.out', index=False)
 
     mb_pick = pd.read_csv(mb_userpath+'/Picks_Sorted.out', sep=',', usecols=[1,3])
