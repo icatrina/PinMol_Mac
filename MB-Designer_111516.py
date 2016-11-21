@@ -477,7 +477,11 @@ if __name__ == "__main__":
         with open (mb_userpath+"/Seq"+str(j)+".ct", 'r') as gin:
             linesa = gin.readlines()
             egdraw = float(linesa[0][16:20])
+            no_bs = int(linesa[0][3:5])
+            paired = int(linesa[1][23:26])
             if egdraw < -7.2 or egdraw > -2.5:
+                os.remove(mb_userpath+"/Seq"+str(j)+".svg")
+            elif no_bs != paired:
                 os.remove(mb_userpath+"/Seq"+str(j)+".svg")
         os.remove(mb_userpath+"/Seq"+str(j)+".seq") 
         #os.remove(mb_userpath+"/Seq"+str(j)+".ct")
