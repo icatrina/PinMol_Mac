@@ -9,7 +9,7 @@ setup(name='PinMol',
       license='Hunter College',
       packages=['PinMol'],
       install_requires=[
-          'pandas<0.18', 'Biopython'
+          'pandas<0.18', 'Biopython',
       dependency_links=['http://rna.urmc.rochester.edu/RNAstructureTextInterfacesMac.tgz'],
 
       zip_safe=False)
