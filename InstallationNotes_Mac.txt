@@ -1,0 +1,10 @@
+Requirements for running PinMol on Mac:
+
+Add the following to the .bash_profile or .profile file:
+
+export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
+export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
+export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
+export DATAPATH="[RNAstructure_path]/RNAstructure/data_tables/"
+
+#example export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
