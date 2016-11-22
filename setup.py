@@ -7,10 +7,10 @@ setup(name='PinMol',
       author='Irina Catrina',
       author_email='icatrina@hunter.cuny.edu',
       license='Hunter College',
-      packages=['PinMol'],
+      #packages=['PinMol'],
       install_requires=[
-          'pandas<0.18', 'Biopython'],
-      dependency_links=['http://rna.urmc.rochester.edu/RNAstructureTextInterfacesMac.tgz'],
+          'pandas<0.19', 'Biopython'],
+
 
       zip_safe=False,
       platforms=['any'])
