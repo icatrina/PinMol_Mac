@@ -1,10 +1,22 @@
 Requirements for running PinMol on Mac:
 
-Add the following to the .bash_profile or .profile file:
+1. You need Python 3.x
 
-export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
-export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
-export PATH="[RNAstructure_path]/RNAstructure/exe:$PATH"
+2. You need RNAstructure text interface (you must register to access download):
+    http://rna.urmc.rochester.edu/RNAstructure.html
+
+3. Add the following lines to the .bash_profile or .profile file:
+
+export PATH="[RNAstructure_directory]/RNAstructure/exe:$PATH"
+export PATH="[RNAstructure_directory]/RNAstructure/exe:$PATH"
+export PATH="[RNAstructure_dierectory]/RNAstructure/exe:$PATH"
 export DATAPATH="[RNAstructure_path]/RNAstructure/data_tables/"
 
-#example export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
+#example If RNAstructure was installed in /Users/MyAccount/Desktop use: 
+
+export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
+
+4. Open a terminal window, go into the PinMol directory and run:
+$ python pinmol.py
+
+#for additional help email at icatrina@hunter.cuny.edu
