@@ -3,6 +3,7 @@ import csv
 import sys
 import pandas as pd
 import os
+import pkg_resources
 from Bio import SeqIO
 from Bio.SeqUtils import MeltingTemp as mt
 import subprocess
