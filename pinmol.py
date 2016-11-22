@@ -1,3 +1,5 @@
+## "Copyright 2016 Irina E. Catrina"
+
 #!/anaconda/bin/python3
 import csv
 import sys
