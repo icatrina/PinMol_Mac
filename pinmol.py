@@ -396,7 +396,7 @@ if __name__ == "__main__":
                 
     df = pd.read_csv(mb_userpath + '/sortedout.csv')
     for row in df:
-        sort3 = df.sort(['sscount','DGunimol', 'DGbimol'], ascending=[False, False, False]) #sort descending by sscount = larger sscount more accessible target region
+        sort3 = df.sort_values(['sscount','DGunimol', 'DGbimol'], ascending=[False, False, False]) #sort descending by sscount = larger sscount more accessible target region
         sort3.to_csv(mb_userpath+'/sortedoutby3.csv', index=False)
     #determine the total number of probes that meet the eg criteria for the selected target (region or full)
     with open(mb_userpath+'/sortedoutby3.csv', 'r') as flistsort3:
