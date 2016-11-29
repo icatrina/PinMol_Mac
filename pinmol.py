@@ -123,13 +123,13 @@ def numberProbes(no_pb):  #how many probes should be retained; limited to range 
         print("Only "+str(row_no)+" meet the criteria.  Instead of "+ str(no_pb)+", " + str(row_no)+ " probe(s) will be considered")
         if row_no > 1:
             no_pb = row_no
-            input1 = open(mb_userpath+'/sortedout.csv', 'r').read().split('\n')
+            input1 = open(mb_userpath+'/sortedoutby3.csv', 'r').read().split('\n')
             output = open(mb_userpath + '/eg_sorted1.csv', 'w')
             output.write('\n'.join(input1))
             output.close()
         elif row_no==1:
             no_pb = row_no
-            input1 = open(mb_userpath+'/sortedout.csv', 'r')
+            input1 = open(mb_userpath+'/sortedoutby3.csv', 'r')
             output.write(input1)
             output.close()
 
@@ -139,7 +139,7 @@ def numberProbes(no_pb):  #how many probes should be retained; limited to range 
                 f1.write(line)
     elif no_pb >0 and no_pb <= 50:
         no_pbf = no_pb
-        input1 = open(mb_userpath+'/sortedout.csv', 'r').read().split('\n')
+        input1 = open(mb_userpath+'/sortedoutby3.csv', 'r').read().split('\n')
         outputData = input1[:no_pb+1]
         output = open(mb_userpath + '/eg_sorted1.csv', 'w')
         output.write('\n'.join(outputData))
@@ -393,8 +393,13 @@ if __name__ == "__main__":
         for row in reader:
             if float(row[6]) >-2.5 and float(row[5])>-7.5:
                 writer.writerow(row)
+                
+    df = pd.read_csv(mb_userpath + '/sortedout.csv')
+    for row in df:
+        sort3 = df.sort(['sscount','DGunimol', 'DGbimol'], ascending=[False, False, False]) #sort descending by sscount = larger sscount more accessible target region
+        sort3.to_csv(mb_userpath+'/sortedoutby3.csv', index=False)
     #determine the total number of probes that meet the eg criteria for the selected target (region or full)
-    with open(mb_userpath+'/sortedout.csv', 'r') as flistsort3:
+    with open(mb_userpath+'/sortedoutby3.csv', 'r') as flistsort3:
         reader = csv.reader(flistsort3)
         row_no = sum(1 for row in reader)-1
         print("Maximum number of possible probes is: "+str(row_no)+"\n")
@@ -501,7 +506,7 @@ if __name__ == "__main__":
     #os.remove(mb_userpath+'/Full_List_sorted.csv')
     #os.remove(mb_userpath+'/filter1.csv')
     os.remove(mb_userpath+'/updated_test2.csv')
-    #os.remove(mb_userpath+'/sortedout.csv')
+    os.remove(mb_userpath+'/sortedout.csv')
     os.remove(mb_userpath+'/final_out.csv')
     os.remove(mb_userpath+'/forblast.csv')
     os.remove(mb_userpath+'/eg_sorted2.csv')
