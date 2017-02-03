@@ -1,2 +1,2 @@
 # PinMol
-Design molecular beacons for live imaging of mRNA targets.
+Design molecular beacons for live cell imaging of mRNA targets.
