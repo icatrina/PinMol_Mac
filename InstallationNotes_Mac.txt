@@ -8,8 +8,6 @@ Requirements for running PinMol on Mac:
 3. Add the following lines to the .bash_profile or .profile file:
 
 export PATH="[RNAstructure_directory]/RNAstructure/exe:$PATH"
-export PATH="[RNAstructure_directory]/RNAstructure/exe:$PATH"
-export PATH="[RNAstructure_dierectory]/RNAstructure/exe:$PATH"
 export DATAPATH="[RNAstructure_path]/RNAstructure/data_tables/"
 
 #example If RNAstructure was installed in /Users/MyAccount/Desktop use: 
@@ -19,4 +17,4 @@ export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
 4. Open a terminal window, go into the PinMol directory and run:
 $ python pinmol.py
 
-#for additional help email at icatrina@hunter.cuny.edu
+#for additional help email icatrina@hunter.cuny.edu
