@@ -544,5 +544,5 @@ if __name__ == "__main__":
     os.remove(mb_userpath+'/sortedoutby3.csv')
     os.remove(mb_userpath+'/ss_strcnt.csv')
     os.remove(mb_userpath+'/mb_picks.csv')
-    #os.remove(mb_userpath+'/blast_results.csv')
-    #os.remove(mb_userpath+'/blast_results_picks.csv')
+    os.remove(mb_userpath+'/blast_results.csv')
+    os.remove(mb_userpath+'/blast_results_picks.csv')
