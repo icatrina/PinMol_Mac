@@ -399,7 +399,7 @@ if __name__ == "__main__":
             
     os.remove(mb_userpath+'/Sorted_list.csv')
 
-    subprocess.check_output(["/Users/irinacatrina/Desktop/RNAstructure/exe/oligoscreen", mb_userpath+'/updated_test.lis', mb_userpath+'/updated_test.csv'])
+    subprocess.check_output(["oligoscreen", mb_userpath+'/updated_test.lis', mb_userpath+'/updated_test.csv'])
     read_oligosc = pd.read_csv(mb_userpath+'/updated_test.csv', delimiter = '\t', usecols=[1,2,3])
     read_oligosc.to_csv(mb_userpath+'/updated_test2.csv', index=False)
 
@@ -512,8 +512,8 @@ if __name__ == "__main__":
 
     i = stemDesign() #design the stem for the molecular beacon
     for x in range(1, int(i)+1):
-        subprocess.check_output(["/Users/irinacatrina/Desktop/RNAstructure/exe/fold", mb_userpath+"/Seq"+str(x)+".seq" , mb_userpath+"/Seq"+str(x)+ ".ct"])
-        subprocess.check_output(["/Users/irinacatrina/Desktop/RNAstructure/exe/draw", mb_userpath+"/Seq"+str(x)+".ct", mb_userpath+"/Seq"+str(x)+ ".svg", '--svg', '-n', '1'])    
+        subprocess.check_output(["fold", mb_userpath+"/Seq"+str(x)+".seq" , mb_userpath+"/Seq"+str(x)+ ".ct"])
+        subprocess.check_output(["draw", mb_userpath+"/Seq"+str(x)+".ct", mb_userpath+"/Seq"+str(x)+ ".svg", '--svg', '-n', '1'])    
     for j in range(1, int(i)+1):     #remove results that are highly structured
         with open (mb_userpath+"/Seq"+str(j)+".ct", 'r') as gin:
             linesa = gin.readlines()
