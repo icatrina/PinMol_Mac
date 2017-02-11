@@ -490,7 +490,7 @@ if __name__ == "__main__":
                 cl[col].append(row[col])
     probe_seq = cl[0]
     
-    #os.remove(mb_userpath+'/top_mb_picks.csv')    
+    os.remove(mb_userpath+'/top_mb_picks.csv')    
     os.remove(mb_userpath+'/forblast.csv')
     os.remove(mb_userpath+'/eg_sorted2.csv')
 
