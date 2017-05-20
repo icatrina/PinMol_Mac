@@ -295,9 +295,9 @@ if __name__ == "__main__":
 
     while True: #probe length?
         try:
-            probe=int(input("Enter the length of probe; a number between 14 and 28: "))
+            probe=int(input("Enter the length of probe; a number between 19 and 26: "))
         except:
-            print('You must type a number between 20 and 28, try again:')
+            print('You must type a number between 19 and 26, try again:')
             continue
 
         else:
