@@ -145,36 +145,10 @@ def numberProbes(no_pb):  #how many probes should be retained; limited to range 
                 f1.write(line)
     return(no_pb, no_pbf)
 
-def blastChoice(blastm): #perform blast separately? HIGHLY RECOMMENDED!!!
-    if blastm == 'n':
-        # what organism should be used for qblast
-        org_blastno = int(input("Enter the organism for BLAST: 1 for D. melanogaster, 2 for H. sapiens and 3 for M. musculus: "))
-        if org_blastno == 2:
-            org_blast = ('Homo sapiens')
-        elif org_blastno == 3:
-            org_blast = ('Mus musculus')
-        elif org_blastno == 1:
-            org_blast = ('Drosophila melanogaster')
-        else:
-            print("You have to enter 1 or 2 or 3!")
-            sys.exit('Try again!')
-        #perform qblast fpr selected probes
-        #print ('The organism for blast is: '+ org_blast)
-        handle = open(mb_userpath+'/blast_picks.fasta','r')
-        save_file = open(mb_userpath+'/my_blast.xml', 'a')
-        for record2 in SeqIO.parse(handle, "fasta"):
-            result_handle = NCBIWWW.qblast("blastn", "refseq_rna", record2, entrez_query = "\"" + org_blast + "\""+'[ORGANISM]', nucl_reward=1, nucl_penalty = -3)
-                #   , format_type = "XML"
-                #    , gapcosts = '5 2'
-            save_file.write(result_handle.read())
-        handle.close()
-        save_file.close()
-        results3 = open(mb_userpath+'/my_blast.xml', 'r')
-        #records= NCBIXML.parse(results3)
-    elif blastm == 'y':
-        print ("\n"*2+'Please use the file blast_picks.fasta to perform blast with refseq-rna database, and desired organism.'+'\n'+' For targets other than mRNAs make sure you use the Nucleotide collection (nr/nt) instead!')
-        save_file = input('Enter path and file name for saved blast XML file: ')
-        results3 = open(save_file, 'r')
+def blastChoice(blastm): #perform blast separately
+    print ("\n"*2+'Please use the file blast_picks.fasta to perform blast with refseq-rna database, and desired organism.'+'\n'+' For targets other than mRNAs make sure you use the Nucleotide collection (nr/nt) instead!')
+    save_file = input('Enter path and file name for saved blast XML file: ')
+    results3 = open(save_file, 'r')
     records= NCBIXML.parse(results3)
 
     pick = 0
@@ -450,9 +424,8 @@ if __name__ == "__main__":
         for line in file:
             f1.write('>'+'\n'+line)
             
-    blast_opt = input('Do you want to perform blast? y/n: ')
-    
-    if blast_opt == 'n':    
+    blastm = input('Do you want to use blast alignment information to determine cross homology? y/n: ')
+    if blastm == 'n':    
         with open (mb_userpath+'/eg_sorted2.csv') as f3:
             dl = [[],[],[]]
             reader = csv.reader(f3)
@@ -482,10 +455,7 @@ if __name__ == "__main__":
         mb_pick = pd.read_csv(mb_userpath+'/blast_results_picks.csv', sep=',', usecols=[0,1])
         mb_pick.to_csv(mb_userpath+'/mb_picks.csv', index=False, header = False)
     
-
-    elif blast_opt == 'y':
-
-        blastm = input('Do you want to perform blast separately? (highly recommended! as direct qblast may take 2h for 30 probes) y/n: ')
+    elif blastm == 'y':   
         pick, query1, str2, str4 = blastChoice(blastm)
         assert pick == no_pb, "The number of queries does not match the number of probes, wrong XML file?" #check if the correct file was used for blast
         assert query1[0] == str2, "The first query is not the same as the first sequence in the blast_picks.fasta file" #check if the correct file was used for blast
@@ -541,8 +511,8 @@ if __name__ == "__main__":
         for row in df:
             df = df.sort_values(['Positives', 'Pick#'], ascending=[True, True])
             df.to_csv(mb_userpath+'/Picks_Sorted.csv', index=False)
-    
-    
+
+
         mb_pick = pd.read_csv(mb_userpath+'/Picks_Sorted.csv', sep=',', usecols=[1,3])
         mb_pick.to_csv(mb_userpath+'/mb_picks.csv', index=False, header = False)
     
@@ -574,10 +544,7 @@ if __name__ == "__main__":
     print("\n"+"Check the structure for the selected probes using your favorite browser by opening the corresponding SVG files!")
     print("\n"+"If no SVG files are found, increase the number of probes and/or target region!")
     #remove intermediate files
-
-    #os.remove(mb_userpath+'/grk'+'_'+str(probe)+'_50_'+str(mb_so)+'so'+'/Full_List_sorted.csv')
-    #os.remove(mb_userpath+'/grk'+'_'+str(probe)+'_50_'+str(mb_so)+'so'+'/filter1.csv')
-    #os.remove(mb_userpath+'/grk'+'_'+str(probe)+'_50_'+str(mb_so)+'so'+'/sortedout.csv')
+    
     os.remove(mb_userpath+'/sortedoutby3.csv')
     os.remove(mb_userpath+'/ss_strcnt.csv')
     os.remove(mb_userpath+'/mb_picks.csv')
