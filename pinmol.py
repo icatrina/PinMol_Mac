@@ -545,7 +545,7 @@ if __name__ == "__main__":
     print("\n"+"If no SVG files are found, increase the number of probes and/or target region!")
     #remove intermediate files
     
-    os.remove(mb_userpath+'/sortedoutby3.csv')
+    os.remove(mb_userpath+'/sortedout.csv')
     os.remove(mb_userpath+'/ss_strcnt.csv')
     os.remove(mb_userpath+'/mb_picks.csv')
     #os.remove(mb_userpath+'/blast_results.csv')
