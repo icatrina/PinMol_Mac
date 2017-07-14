@@ -7,6 +7,10 @@ from Bio.SeqUtils import MeltingTemp as mt
 import subprocess
 from Bio.Blast import NCBIXML
 print("\n"*5)
+print('PinMol  Copyright (C) 2017  Irina E. Catrina' + '\n'+
+'This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.' + '\n'+
+'This is free software, and you are welcome to redistribute it' + '\n'+
+'under certain conditions; type' + '\`'+'show c'+'\''+ 'for details.'+ '\n')
 undscr = "->"*30
 print(undscr)
 print("\n"+"WARNING: Previous files will be overwritten!  Save them in a "+"\n"+"different location than the current file, or rename them to "+"\n"+"ensure they are not misused (e.g. use probes from a different target)."+"\n")
