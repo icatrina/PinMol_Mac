@@ -17,4 +17,4 @@ export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
 4. Open a terminal window, go into the PinMol directory and run:
 $ python pinmol_mac.py
 
-#for additional help email icatrina@hunter.cuny.edu
+#for additional help email iecatrina@gmail.com
