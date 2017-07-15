@@ -496,13 +496,13 @@ if __name__ == "__main__":
     no_ss = (read_sscnt["sscount"] > 0.5).sum()
     
     with open (mb_userpath+'/Final_molecular_beacons.csv', 'a') as add_output:
-        add_output.write('Results for ' + '\"'+filename +'\"'+ ' using ' + str(probe) + ' as probe length, '+'\n'+'for '+ str(no_pb) + ' probes, and for a target region between ' + 
+        add_output.write('Results for ' + '\"'+filename +'\"'+ ' using ' + str(probe) + ' as probe length, '+'\n'+'for '+ str(no_pb) + ' probes, and blast choice = '+blastm+ ', and for a target region between ' + 
         str(tg_start) +' and ' + str(tg_end) + ' nucleotides:  ' + '\n' +
         '\t'+'1. Total number of possible probes =  ' + str(no_probes-1)+ '\n'+
         '\t'+'2. Number of probes that have a GC content between 30% and 56% =  '+ str(no_GCprobes-1)+ '\n' +
         '\t'+'3. Number of probes that meet GC and energetic criteria =  ' + str(row_no) + '\n'
         '\t'+'4. Number of probes that have an ss-count fraction larger than 0.5 =  ' + str(no_ss)+ '\n')
-    print('Results for ' + '\"'+filename +'\"'+ ' using ' + str(probe) + ' as probe length, '+'\n'+'for '+ str(no_pb) + ' probes, and for a target region between ' + 
+    print('Results for ' + '\"'+filename +'\"'+ ' using ' + str(probe) + ' as probe length, '+'\n'+'for '+ str(no_pb) + ' probes, and blast choice = '+blastm+ ', and for a target region between ' + 
         str(tg_start) +' and ' + str(tg_end) + ' nucleotides:  ' + '\n')
     print('\t'+'1. Total number of possible probes =  ' + str(no_probes-1)+ '\n')
     print('\t'+'2. Number of probes that have a GC content between 30 and 56 =  '+ str(no_GCprobes-1)+ '\n')
