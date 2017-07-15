@@ -1,6 +1,6 @@
 Requirements for running PinMol on Mac:
 
-1. You need Python 3.x (with pandas, Biopython)
+1. You need Python 3.x (with pandas, Biopython; try running "setup.py" first; and if their installation fails please do a manual installation)
 
 2. You need RNAstructure text interface (you must register to access download):
     http://rna.urmc.rochester.edu/RNAstructure.html
