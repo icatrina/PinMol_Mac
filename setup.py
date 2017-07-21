@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='PinMol',
-      version='1.0-beta',
+      version='1.0',
       description='Find molecular beacons for live cell imaging of mRNAs',
       url='https://github.com/icatrina/PinMol_Mac',
       author='Irina E. Catrina',
