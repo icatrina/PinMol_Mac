@@ -14,7 +14,7 @@ export DATAPATH="[RNAstructure_path]/RNAstructure/data_tables/"
 
 export PATH="/Users/MyAccount/Desktop/RNAstructure/exe:$PATH"
 
-4. Open a terminal window, go into the PinMol directory and run:
-$ python3 pinmol_mac.py
+4. Open a terminal window and run:
+$ python3 C:/[path for pinmol_mac]\pinmol_mac.py
 
 #for additional help email iecatrina@gmail.com
