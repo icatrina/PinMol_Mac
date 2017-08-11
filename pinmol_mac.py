@@ -413,6 +413,8 @@ if __name__ == "__main__":
                 writer.writerow(row)
         mb_pick = pd.read_csv(mb_userpath+'/blast_results_picks.csv', sep=',', usecols=[0,1])
         mb_pick.to_csv(mb_userpath+'/mb_picks.csv', index=False, header = False)
+        
+        os.remove(mb_userpath+'/probes_forblast.csv')
 
     elif blastm == 'y':
         pick, query1, str2, str4 = blastChoice(blastm)
