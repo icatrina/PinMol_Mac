@@ -489,11 +489,12 @@ if __name__ == "__main__":
             #print (egdraw, no_bs, paired)
             if egdraw < -7.2 or egdraw > -2.5:
                 os.remove(mb_userpath+"/Seq"+str(j)+".svg")
+                os.remove(mb_userpath+"/Seq"+str(j)+".ct")
             elif no_bs != paired:
                 os.remove(mb_userpath+"/Seq"+str(j)+".svg")
                 os.remove(mb_userpath+"/Seq"+str(j)+".ct")
         os.remove(mb_userpath+"/Seq"+str(j)+".seq")
-       # os.remove(mb_userpath+"/Seq"+str(j)+".ct")
+       #os.remove(mb_userpath+"/Seq"+str(j)+".ct")
 
     read_sscnt = pd.read_csv(mb_userpath+'/all_probes_sorted_ss.csv', delimiter = ',')
     no_ss = (read_sscnt["sscount"] > 0.5).sum()
