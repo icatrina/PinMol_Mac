@@ -491,6 +491,7 @@ if __name__ == "__main__":
                 os.remove(mb_userpath+"/Seq"+str(j)+".svg")
             elif no_bs != paired:
                 os.remove(mb_userpath+"/Seq"+str(j)+".svg")
+                os.remove(mb_userpath+"/Seq"+str(j)+".ct")
         os.remove(mb_userpath+"/Seq"+str(j)+".seq")
        # os.remove(mb_userpath+"/Seq"+str(j)+".ct")
 
