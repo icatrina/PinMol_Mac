@@ -5,6 +5,7 @@ import pandas as pd
 import os
 from Bio.SeqUtils import MeltingTemp as mt
 import subprocess
+import re
 from Bio.Blast import NCBIXML
 print("\n"*5)
 print('PinMol  Copyright (C) 2017  Irina E. Catrina' + '\n'+
