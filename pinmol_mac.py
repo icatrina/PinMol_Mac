@@ -26,9 +26,10 @@ def readSScountFile(filename): #sscount file for molecular beacon design
     with open(filename) as infile: #clean-up the file remove whitespaces from left side
         for line in infile:
             line = line.lstrip(" ")
+            newlines = re.sub(' +', ' ', line)
             if not line:
                 continue
-            baselines.append(line.upper())
+            baselines.append(newlines.upper())
     so = int(baselines[0]) #number of suboptimal structures
     return (so, userpath, baselines)
 
