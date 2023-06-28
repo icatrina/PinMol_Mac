@@ -9,7 +9,7 @@ setup(name='PinMol',
       license='Hunter College',
       #packages=['PinMol'],
       install_requires=[
-          'pandas<0.19', 'Biopython'],
+          'pandas', 'Biopython<1.76'],
 
 
       zip_safe=False,
